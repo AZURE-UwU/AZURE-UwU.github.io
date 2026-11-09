@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="分析 PY32F003 项目移植 LVGL 的 Flash、RAM 和显示缓冲预算。">
+  <title>64 KB 里做界面 · 红石手记</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">B</span><span>红石手记</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="nav-pill" id="site-nav" aria-label="主导航">
+        <a href="../index.html">首页</a><a href="../blog.html" aria-current="page">文章</a><a href="../projects.html">项目</a><a href="../about.html">关于</a><a href="https://github.com/AZURE-UwU">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="切换夜间主题">夜读</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="article" class="article-shell">
+    <header class="article-header">
+      <a class="back-link" href="../blog.html">← 返回文章目录</a>
+      <p class="eyebrow">EMBEDDED / UI · 2026-11-09</p>
+      <h1>64 KB 里做界面：<br>PY32 项目与 LVGL 的距离</h1>
+      <p class="article-deck">LVGL 很轻，但“轻量”是相对于桌面浏览器而言，不是相对于一颗已经被业务占满的 64 KB MCU。</p>
+    </header>
+
+    <article class="prose">
+      <p>这次审查的对象是 PY32F003F18P6TU、ST7735S 160×80 横屏项目。现有功能已经包括 INA226 多地址扫描、NTC 测温、风扇控制、配置保存、低电量关机和一套自定义 UI。</p>
+      <div class="callout">
+        <strong>先说结论</strong>
+        <p>保留当前全部功能并直接接入完整 LVGL，不可行。删除现有 UI 后勉强裁剪，也仍然很紧，不值得作为产品路线。</p>
+      </div>
+      <h2>先把资源账摊开</h2>
+      <p>当前构建约为 39,000 B Code、8,572 B RO-data、388 B RW-data 和 4,836 B ZI-data。按 64 KB Flash 与 8 KB SRAM 计算，Flash 约剩 17 KB，SRAM 约剩 3 KB。</p>
+      <div class="data-strip">
+        <div><span>Flash</span><strong>47.96 KB / 64 KB</strong></div>
+        <div><span>SRAM</span><strong>5.22 KB / 8 KB</strong></div>
+        <div><span>全屏缓冲</span><strong>25.6 KB</strong></div>
+      </div>
+      <p>LVGL 官方最低要求是 Flash 大于 64 KB、静态 RAM 约 2 KB，并且还需要显示缓冲和对象内存池。仅全屏 RGB565 缓冲就已经超过整颗芯片的 SRAM。</p>
+      <h2>局部缓冲也救不了整个系统</h2>
+      <p>使用 160 像素的一行缓冲只需要 320 B，但这只是画布的一部分。LVGL 自己的状态、对象树、样式、事件和定时器仍然需要空间。现有工程只剩约 3 KB，没有余量承担这些开销。</p>
+      <blockquote>显示缓冲小，不等于 UI 框架的整体内存需求小。</blockquote>
+      <h2>现有自绘 UI 其实更合适</h2>
+      <p>项目已经有差分槽、局部恢复、流式字符绘制和极简控件。对于固定页面和三个按键，这些定制的代价比完整控件系统更低。</p>
+      <h2>如果以后要上 LVGL</h2>
+      <ol>
+        <li>换到至少 128 KB Flash、20 KB SRAM 的 MCU，舒适区间则是 256 KB Flash、64 KB SRAM。</li>
+        <li>保留 BSP、采集、配置和电源策略，只替换字体、绘制和控件层。</li>
+        <li>让 task 更新数据快照，UI 再更新控件，不要在中断里直接调用 LVGL。</li>
+        <li>按键映射到 `lv_group`，显示通过局部 `flush_cb` 发给 ST7735。</li>
+      </ol>
+      <p>这不是“LVGL 不好”，而是工具和资源必须匹配。对当前设备，最合理的选择仍然是继续维护现有自绘 UI。</p>
+    </article>
+    <nav class="article-next" aria-label="继续阅读">
+      <span>下一篇</span>
+      <a href="modern-standby-wifi.html">合上盖子以后，Wi‑Fi 为什么消失了 →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer shell"><p>© 2026 Bowen · 红石手记</p><p><a href="../index.html">回到首页</a></p></footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

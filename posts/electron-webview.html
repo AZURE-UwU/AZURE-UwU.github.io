@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="解释 Electron、WebView2 与系统 UI 中浏览器引擎的关系。">
+  <title>Electron、WebView 与“浏览器系统” · 红石手记</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">B</span><span>红石手记</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="nav-pill" id="site-nav" aria-label="主导航">
+        <a href="../index.html">首页</a><a href="../blog.html" aria-current="page">文章</a><a href="../projects.html">项目</a><a href="../about.html">关于</a><a href="https://github.com/AZURE-UwU">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="切换夜间主题">夜读</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="article" class="article-shell">
+    <header class="article-header">
+      <a class="back-link" href="../blog.html">← 返回文章目录</a>
+      <p class="eyebrow">DESKTOP / RUNTIME · 2026-11-09</p>
+      <h1>Electron、WebView<br>与“浏览器系统”</h1>
+      <p class="article-deck">网页技术正在成为系统里的 UI 层，但这不等于整个 Windows 变成了一颗浏览器。</p>
+    </header>
+    <article class="prose">
+      <p>Electron 用 Chromium 渲染界面，用 Node.js 连接文件和进程。它让一套 Web 技术可以发布成 Windows、macOS 和 Linux 桌面程序。</p>
+      <h2>Electron 不是 Chrome</h2>
+      <p>Chrome 是带地址栏、账号和通用浏览能力的完整产品。Electron 是开发框架，成品只在需要时提供窗口、菜单和系统能力。</p>
+      <div class="compare-grid">
+        <div><strong>Chromium</strong><span>网页渲染内核</span></div>
+        <div><strong>Electron</strong><span>Chromium + Node + 桌面外壳</span></div>
+        <div><strong>WebView2</strong><span>系统共享的 Edge 网页运行时</span></div>
+      </div>
+      <h2>为什么到处都能看到它</h2>
+      <p>聊天、设置页、文档编辑器和控制面板都适合用组件化 Web UI 实现。跨平台、热更新和前端生态带来的效率，往往比节省几十 MB 内存更重要。</p>
+      <p>代价是应用更大、进程更多，也需要更严格地处理渲染进程隔离、CSP 和原生桥接。</p>
+      <h2>Windows 也不是一个巨大网页</h2>
+      <p>任务栏、窗口管理和大多数 Shell 逻辑仍是原生组件。搜索、商店和小组件等内容区域会嵌入 WebView2，但内核、驱动和服务仍在下面。</p>
+      <blockquote>局部使用网页渲染，不等于整个操作系统只有浏览器。</blockquote>
+      <h2>Codex 也是混合结构</h2>
+      <p>桌面窗口使用 Electron 和 Web 前端，核心执行引擎则是独立 Rust app-server。界面和执行边界分开，才能既获得 Web UI 效率，又保留本地系统能力。</p>
+    </article>
+    <nav class="article-next" aria-label="继续阅读">
+      <span>下一篇</span>
+      <a href="open-source-cleaners.html">开源清理工具：Star 不是安全评分 →</a>
+    </nav>
+  </main>
+  <footer class="site-footer shell"><p>© 2026 Bowen · 红石手记</p><p><a href="../index.html">回到首页</a></p></footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

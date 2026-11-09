@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="解释 Windows Modern Standby 期间 Wi-Fi 被驱动断开的日志链路。">
+  <title>合上盖子以后，Wi-Fi 为什么消失了 · 红石手记</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">B</span><span>红石手记</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="nav-pill" id="site-nav" aria-label="主导航">
+        <a href="../index.html">首页</a><a href="../blog.html" aria-current="page">文章</a><a href="../projects.html">项目</a><a href="../about.html">关于</a><a href="https://github.com/AZURE-UwU">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="切换夜间主题">夜读</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="article" class="article-shell">
+    <header class="article-header">
+      <a class="back-link" href="../blog.html">← 返回文章目录</a>
+      <p class="eyebrow">WINDOWS / POWER · 2026-11-09</p>
+      <h1>合上盖子以后，<br>Wi‑Fi 为什么消失了</h1>
+      <p class="article-deck">无线网卡没有坏。真正发生的是：系统进入了另一种电源状态，驱动程序按规则断开了网络。</p>
+    </header>
+    <article class="prose">
+      <p>事件日志把一次看似神秘的断网还原得非常清楚：系统进入 Modern Standby，随后 Intel AX210 被驱动断开，唤醒后 WLAN 服务立即重新连接。</p>
+      <div class="log-card">
+        <div><time>10:07:14</time><span>进入新型待机</span></div>
+        <div><time>10:07:27</time><span>网络被驱动程序断开</span></div>
+        <div><time>10:08:01</time><span>退出待机并重新关联</span></div>
+      </div>
+      <h2>S0ix 不是传统睡眠</h2>
+      <p>Modern Standby 属于 S0 低功耗待机。系统没有彻底停止，屏幕、PCIe 和无线设备可以进入低功耗状态，某些后台活动仍可能发生。</p>
+      <p>传统 S3 会保持内存供电，S4 则把内存写入磁盘。当前设备固件不支持 S1、S2，S3 被 Modern Standby 策略禁用，S4 又因 VHD 启动不可用。</p>
+      <h2>关屏、睡眠和断网不是同一件事</h2>
+      <p>若只是关闭显示输出，系统可以继续停留在 S0，Wi‑Fi 仍然工作。若按下电源键、合上盖子或空闲计时触发的是 Modern Standby，无线设备就可能被主动关闭。</p>
+      <blockquote>看到“Wi‑Fi 断了”时，先确认系统是否根本没有保持清醒。</blockquote>
+      <h2>判断路径</h2>
+      <ol>
+        <li>查看 Kernel-Power 的 506、507 事件，确认进入和退出待机的时刻。</li>
+        <li>对照 WLAN-AutoConfig 的 8003 事件，检查断开原因是否为驱动程序。</li>
+        <li>确认交流供电下的睡眠超时和电源键动作，而不是只看屏幕超时。</li>
+      </ol>
+      <p>这次问题最终不是“无线网卡不稳定”，而是电源策略把网络一起带进了待机。</p>
+    </article>
+    <nav class="article-next" aria-label="继续阅读">
+      <span>下一篇</span>
+      <a href="electron-webview.html">Electron、WebView 与“浏览器系统” →</a>
+    </nav>
+  </main>
+  <footer class="site-footer shell"><p>© 2026 Bowen · 红石手记</p><p><a href="../index.html">回到首页</a></p></footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

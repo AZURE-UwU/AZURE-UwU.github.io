@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bowen 的技术文章目录，记录嵌入式、Windows 与开发工具。">
+  <title>文章目录 · 红石手记</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">B</span><span>红石手记</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="nav-pill" id="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="blog.html" aria-current="page">文章</a>
+        <a href="projects.html">项目</a>
+        <a href="about.html">关于</a>
+        <a href="https://github.com/AZURE-UwU" rel="me noreferrer">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="切换夜间主题">夜读</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="listing-hero shell">
+      <p class="eyebrow">NOTES / FIELD LOG</p>
+      <h1>文章不是答案库，<br><em>而是推理记录。</em></h1>
+      <p>从资源预算、系统状态到工具权限，留下能被复查的判断过程。</p>
+    </section>
+
+    <section class="listing-surface">
+      <div class="listing-inner shell">
+        <div class="filter-panel">
+          <label class="search-label" for="post-search">搜索文章</label>
+          <div class="search-wrap">
+            <input id="post-search" type="search" placeholder="标题、主题或关键词" autocomplete="off">
+            <span id="post-count" class="result-count">4 篇</span>
+          </div>
+          <div class="filter-chips" role="group" aria-label="按主题筛选">
+            <button type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button type="button" data-filter="embedded" aria-pressed="false">嵌入式</button>
+            <button type="button" data-filter="windows" aria-pressed="false">Windows</button>
+            <button type="button" data-filter="tools" aria-pressed="false">工具</button>
+          </div>
+        </div>
+
+        <div class="post-grid listing-grid" id="post-grid">
+          <article class="post-card tone-sky" data-tags="embedded tools">
+            <div class="post-mark">64K</div>
+            <p class="post-route">EMBEDDED / UI</p>
+            <h2><a href="posts/lvgl-on-py32.html">64 KB 里做界面：PY32 项目与 LVGL 的距离</a></h2>
+            <p>当功能已经占掉 48 KB Flash 和 5.2 KB SRAM，LVGL 就不再只是“引入一个库”。</p>
+            <div class="post-footer"><span>2026-11-09 · 8 分钟</span><a href="posts/lvgl-on-py32.html">阅读 →</a></div>
+          </article>
+          <article class="post-card tone-peach" data-tags="windows embedded">
+            <div class="post-mark">S0</div>
+            <p class="post-route">WINDOWS / POWER</p>
+            <h2><a href="posts/modern-standby-wifi.html">合上盖子以后，Wi‑Fi 为什么消失了</a></h2>
+            <p>S0ix、S3、S4 和事件日志如何共同解释一次“关屏就断网”。</p>
+            <div class="post-footer"><span>2026-11-09 · 6 分钟</span><a href="posts/modern-standby-wifi.html">阅读 →</a></div>
+          </article>
+          <article class="post-card tone-mint" data-tags="tools embedded">
+            <div class="post-mark">WEB</div>
+            <p class="post-route">DESKTOP / RUNTIME</p>
+            <h2><a href="posts/electron-webview.html">Electron、WebView 与“浏览器系统”</a></h2>
+            <p>网页技术成为系统里的 UI 层，但内核、驱动和真正执行任务的部分仍在下面。</p>
+            <div class="post-footer"><span>2026-11-09 · 7 分钟</span><a href="posts/electron-webview.html">阅读 →</a></div>
+          </article>
+          <article class="post-card tone-lilac" data-tags="tools windows">
+            <div class="post-mark">OSS</div>
+            <p class="post-route">TOOLS / SAFETY</p>
+            <h2><a href="posts/open-source-cleaners.html">开源清理工具：Star 不是安全评分</a></h2>
+            <p>从许可证、权限、删除策略和发布摘要判断一款清理工具能不能用。</p>
+            <div class="post-footer"><span>2026-11-09 · 9 分钟</span><a href="posts/open-source-cleaners.html">阅读 →</a></div>
+          </article>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>没有匹配的文章，换个关键词试试。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>© 2026 Bowen · 红石手记</p>
+    <p><a href="index.html">回到首页</a> · <a href="https://github.com/AZURE-UwU">GitHub</a></p>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

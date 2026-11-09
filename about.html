@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="关于 Bowen 和红石手记。">
+  <title>关于 · 红石手记</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">B</span><span>红石手记</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="nav-pill" id="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="blog.html">文章</a>
+        <a href="projects.html">项目</a>
+        <a href="about.html" aria-current="page">关于</a>
+        <a href="https://github.com/AZURE-UwU" rel="me noreferrer">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="切换夜间主题">夜读</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="about-hero shell">
+      <div>
+        <p class="eyebrow">ABOUT / REDSTONE NOTES</p>
+        <h1>写代码，<br><em>也写为什么。</em></h1>
+        <p class="hero-lead">这里是 Bowen 的个人工作台。关注嵌入式设备、系统工具和 AI 辅助开发，习惯把一个问题拆到能验证、能复现、能交接。</p>
+      </div>
+      <aside class="profile-card">
+        <span class="profile-mark">B</span>
+        <h2>Bowen</h2>
+        <p>Embedded · Windows tools · AI workflows</p>
+        <div class="profile-tags"><span>固件</span><span>界面</span><span>工具</span></div>
+        <a class="primary-button small" href="https://github.com/AZURE-UwU">GitHub 主页</a>
+      </aside>
+    </section>
+
+    <section class="story-band">
+      <div class="shell story-grid">
+        <article>
+          <p class="eyebrow">HOW I THINK</p>
+          <h2>先建立模型，再开始动手</h2>
+          <p>看到异常时，先确认系统实际处于什么状态，再检查局部实现。界面问题可能在电源状态里，资源问题也可能在架构边界里。</p>
+        </article>
+        <article>
+          <p class="eyebrow">WHAT I SHARE</p>
+          <h2>过程比结论更有复用价值</h2>
+          <p>文章会写清前提、数字、日志和反面条件。读者可以不同意最终选择，但应当能复查这条推理链。</p>
+        </article>
+        <article>
+          <p class="eyebrow">WHAT I AVOID</p>
+          <h2>不把“能用”写成“可以放心用”</h2>
+          <p>涉及删除、驱动、系统权限和不可逆操作时，需要明确风险、回滚方式和默认策略。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="timeline shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">CURRENT FOCUS</p><h2>现在关注的三件事</h2></div>
+      </div>
+      <ol class="timeline-list">
+        <li><span>01</span><div><h3>资源受限设备上的 UI</h3><p>在不牺牲状态可靠性的前提下降 Flash、RAM 和总线开销。</p></div></li>
+        <li><span>02</span><div><h3>Windows 本地工具</h3><p>用清楚的用户确认和可回滚操作，处理系统级能力。</p></div></li>
+        <li><span>03</span><div><h3>可验证的 AI 工作流</h3><p>把生成、执行和检查分离，让结果不依赖一次偶然成功。</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>© 2026 Bowen · 红石手记</p>
+    <p><a href="index.html">回到首页</a> · <a href="https://github.com/AZURE-UwU">GitHub</a></p>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

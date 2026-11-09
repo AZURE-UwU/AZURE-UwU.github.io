@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bowen 的个人主页与技术笔记，记录嵌入式开发、桌面工具和 AI 工作流。">
+  <title>Bowen · 红石手记</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="红石手记首页">
+        <span class="brand-mark">B</span>
+        <span>红石手记</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="nav-pill" id="site-nav" aria-label="主导航">
+        <a href="index.html" aria-current="page">首页</a>
+        <a href="blog.html">文章</a>
+        <a href="projects.html">项目</a>
+        <a href="about.html">关于</a>
+        <a href="https://github.com/AZURE-UwU" rel="me noreferrer">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="切换夜间主题">夜读</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">BOWEN · EMBEDDED NOTES</p>
+        <h1>记录那些<br><em>真正跑起来</em>的想法。</h1>
+        <p class="hero-lead">嵌入式开发、桌面工具与 AI 工作流。把从电路到界面的选择、失败和取舍，整理成下一次能直接复用的笔记。</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="blog.html">读最新文章</a>
+          <a class="text-link" href="projects.html">看看项目 <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="stats" aria-label="站点概览">
+          <li><strong>4</strong> 篇可读笔记</li>
+          <li><strong>3</strong> 个关注方向</li>
+          <li><strong>2026</strong> 持续更新</li>
+        </ul>
+      </div>
+
+      <div class="hero-board" aria-hidden="true">
+        <div class="board-card terminal-card">
+          <div class="terminal-top"><span></span><span></span><span></span></div>
+          <p class="terminal-label">build.log</p>
+          <div class="terminal-row"><span>chip</span><b>PY32F003</b></div>
+          <div class="terminal-row"><span>display</span><b>ST7735</b></div>
+          <div class="terminal-row"><span>budget</span><b>64K / 8K</b></div>
+          <p class="terminal-ok">RESULT: understanding &gt; rushing</p>
+        </div>
+        <div class="board-note">
+          <span class="note-index">NOTE 001</span>
+          <strong>先把问题讲清楚，再让代码跑起来。</strong>
+        </div>
+        <span class="sticker sticker-one">固件</span>
+        <span class="sticker sticker-two">界面</span>
+        <span class="sticker sticker-three">工具</span>
+      </div>
+    </section>
+
+    <section class="topic-section shell">
+      <div class="section-heading compact">
+        <div>
+          <p class="eyebrow">CURRENT THREADS</p>
+          <h2>最近在折腾什么</h2>
+        </div>
+        <a class="outline-button" href="projects.html">全部项目</a>
+      </div>
+      <div class="topic-grid">
+        <article class="topic-card tone-sky">
+          <span class="topic-number">01</span>
+          <p class="topic-kicker">MCU / UI</p>
+          <h3>小资源设备里的界面取舍</h3>
+          <p>PY32、ST7735、局部刷新，以及什么时候值得引入 LVGL。</p>
+        </article>
+        <article class="topic-card tone-peach">
+          <span class="topic-number">02</span>
+          <p class="topic-kicker">WINDOWS / POWER</p>
+          <h3>电脑到底什么时候才算睡着</h3>
+          <p>记录 Modern Standby、VHD 与 Wi‑Fi 断联背后的电源状态变化。</p>
+        </article>
+        <article class="topic-card tone-mint">
+          <span class="topic-number">03</span>
+          <p class="topic-kicker">TOOLS / AGENTS</p>
+          <h3>让工具真的省时间</h3>
+          <p>Codex、开源清理工具和自动化方案，关注边界而不只看功能表。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-band">
+      <div class="paper-band-inner shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LATEST NOTES</p>
+            <h2>把过程写下来</h2>
+          </div>
+          <a class="outline-button" href="blog.html">文章目录</a>
+        </div>
+
+        <div class="post-grid home-posts">
+          <article class="post-card tone-sky">
+            <div class="post-mark">64K</div>
+            <p class="post-route">EMBEDDED / UI</p>
+            <h3><a href="posts/lvgl-on-py32.html">64 KB 里做界面：PY32 项目与 LVGL 的距离</a></h3>
+            <p>从 Flash、SRAM、显示缓冲和控件对象四笔账，判断何时该换平台。</p>
+            <div class="post-footer">
+              <span>2026-11-09</span>
+              <a href="posts/lvgl-on-py32.html" aria-label="阅读文章：64 KB 里做界面">阅读 →</a>
+            </div>
+          </article>
+          <article class="post-card tone-peach">
+            <div class="post-mark">S0</div>
+            <p class="post-route">WINDOWS / POWER</p>
+            <h3><a href="posts/modern-standby-wifi.html">合上盖子以后，Wi‑Fi 为什么消失了</a></h3>
+            <p>从 Modern Standby、S0ix 和事件日志，还原一次看似神秘的断网。</p>
+            <div class="post-footer">
+              <span>2026-11-09</span>
+              <a href="posts/modern-standby-wifi.html" aria-label="阅读文章：合上盖子以后">阅读 →</a>
+            </div>
+          </article>
+          <article class="post-card tone-mint">
+            <div class="post-mark">WEB</div>
+            <p class="post-route">DESKTOP / RUNTIME</p>
+            <h3><a href="posts/electron-webview.html">Electron、WebView 与“浏览器系统”</a></h3>
+            <p>为什么桌面应用都在嵌网页，但整台电脑并没有变成一个 Chrome。</p>
+            <div class="post-footer">
+              <span>2026-11-09</span>
+              <a href="posts/electron-webview.html" aria-label="阅读文章：Electron、WebView 与浏览器系统">阅读 →</a>
+            </div>
+          </article>
+          <article class="post-card tone-lilac">
+            <div class="post-mark">OSS</div>
+            <p class="post-route">TOOLS / SAFETY</p>
+            <h3><a href="posts/open-source-cleaners.html">开源清理工具：Star 不是安全评分</a></h3>
+            <p>比较高权限清理工具的能力边界、默认删除策略和可回滚程度。</p>
+            <div class="post-footer">
+              <span>2026-11-09</span>
+              <a href="posts/open-source-cleaners.html" aria-label="阅读文章：开源清理工具">阅读 →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-shell shell">
+      <div>
+        <p class="eyebrow">A SMALL MANIFESTO</p>
+        <h2>少一点“一键完成”，多一点知道为什么。</h2>
+        <p>这里的笔记不追求把每个功能都列出来，而是记录条件、代价和适用边界。</p>
+      </div>
+      <a class="primary-button" href="about.html">认识这个站点</a>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>© 2026 Bowen · 红石手记</p>
+    <p>Built for GitHub Pages · <a href="https://github.com/AZURE-UwU">查看源码</a></p>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

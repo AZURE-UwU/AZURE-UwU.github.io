@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="开源 Windows 清理工具的选择标准与权限风险。">
+  <title>开源清理工具：Star 不是安全评分 · 红石手记</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">B</span><span>红石手记</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="nav-pill" id="site-nav" aria-label="主导航">
+        <a href="../index.html">首页</a><a href="../blog.html" aria-current="page">文章</a><a href="../projects.html">项目</a><a href="../about.html">关于</a><a href="https://github.com/AZURE-UwU">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="切换夜间主题">夜读</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="article" class="article-shell">
+    <header class="article-header">
+      <a class="back-link" href="../blog.html">← 返回文章目录</a>
+      <p class="eyebrow">TOOLS / SAFETY · 2026-11-09</p>
+      <h1>开源清理工具：<br>Star 不是安全评分</h1>
+      <p class="article-deck">一个工具开源、Star 多、界面好看，都不代表它适合对一台正在工作的电脑执行深度清理。</p>
+    </header>
+    <article class="prose">
+      <p>清理工具的风险不是“有没有开源”这么简单。真正要审查的是它获得了什么权限、默认删除什么、失败时能否回滚。</p>
+      <h2>先按任务拆工具</h2>
+      <div class="tool-table">
+        <div><strong>临时缓存</strong><span>BleachBit</span></div>
+        <div><strong>磁盘空间</strong><span>WinDirStat</span></div>
+        <div><strong>重复文件</strong><span>Czkawka</span></div>
+        <div><strong>软件卸载</strong><span>Bulk Crap Uninstaller</span></div>
+      </div>
+      <p>把分析和删除分成两步，比“一键清理”更容易验证，也更容易在中途停下。</p>
+      <h2>Code review 看什么</h2>
+      <ul>
+        <li>是否默认以管理员权限运行。</li>
+        <li>定时任务默认永久删除还是移入回收站。</li>
+        <li>强力卸载是否会按路径批量停止进程、删除服务和驱动。</li>
+        <li>是否允许远程规则、规则能执行到什么程度。</li>
+        <li>发布包是否有可核验摘要或签名。</li>
+      </ul>
+      <h2>Star 能说明什么</h2>
+      <p>Star 反映关注度和部分社区认可，不反映删除路径是否安全，也不保证版本更新不会改变默认行为。</p>
+      <blockquote>对高权限工具，默认值和回滚能力比功能数量重要。</blockquote>
+      <p>在包含 Hyper‑V、WSL、开发缓存和 VHD 的机器上，最安全的策略通常是：先只读分析，再只清理明确目录，最后才考虑系统级优化。</p>
+    </article>
+    <nav class="article-next" aria-label="继续阅读">
+      <span>回到目录</span>
+      <a href="../blog.html">浏览全部文章 →</a>
+    </nav>
+  </main>
+  <footer class="site-footer shell"><p>© 2026 Bowen · 红石手记</p><p><a href="../index.html">回到首页</a></p></footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>
